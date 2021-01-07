@@ -1,0 +1,26 @@
+const Product = require('../models/product');
+
+exports.getProduct = (req, res, next) => {
+    Product.fetchAll()
+    .then(products => {
+      res.render('products', {
+        products: products,
+        pageTitle: 'Products',
+        hasProducts: products.length > 0
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
+};
+
+exports.postProduct = (req, res, next) => {
+    const product = new Product(req.body.productname, req.body.productprice, req.body.productdescription);
+    product.save();
+    res.redirect('/admin/products');
+};
+
+exports.indexProduct = (req, res, next) => {
+    res.render('index', { pageTitle: 'Add Product' });
+}
