@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const path = require('path');
 
+const port = process.env.port || 3000
+
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
@@ -24,5 +26,5 @@ app.use(errorController.getErrors);
 
 
 mongoDBConnect(() => {
-    app.listen(3000);
+    app.listen(port);
 });
