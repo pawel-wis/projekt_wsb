@@ -1,7 +1,5 @@
 ## Tworzenie grupy zasobów
-```
-az group create --name myWsbGroup --location "West Europe"
-```
+![alt text](https://github.com/pawel-wis/projekt_wsb/blob/main/photos/appservice.PNG)
 ## Tworzenie bazy danych w usłudze CosmosDB
 ```
 az cosmosdb create --name wsb-db --resource-group myWsbGroup --kind MongoDB
